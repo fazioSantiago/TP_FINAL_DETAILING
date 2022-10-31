@@ -24,8 +24,12 @@ namespace TP_FINAL_DETAILING.Controllers
             {
                 context.Clientes.Add(c);//guarda de forma logica al cliente
                 context.SaveChanges();
+                TempData["CLienteTurno"] = c;
             }
             return RedirectToAction(nameof(Index)); //me manda al index de cliente
+
+            //para que nos mande a una View de otro controlador, le pongo el controlador y el nombre de la vista.
+            //Como le paso el objeto cliente?
         }
     }
 }

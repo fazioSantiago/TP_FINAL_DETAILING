@@ -1,9 +1,152 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!DOCTYPE html>
+<html>
 
-<h1>LANDING HOME</h1>
-<h1>BIENVENIDOS</h1>
-<button class="btn btn-dark m-3 border border-2">RESERVAR TURNO</button>
+<head>
+
+    <meta charset="utf-8">
+
+    <title>BIENVENIDOS</title>
+
+    <link href='../Views/Css/HomeIndex.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+
+</head>
+
+
+<body>
+
+
+
+    <div id="banner">
+
+        <h1>SERVICIOS</h1>
+
+        <p>Reservá tu turno</p>
+
+        <p>
+
+            <a href="#">Comencemos</a>
+
+        </p>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+
+                <div>
+
+                                           
+                    <img src="./Views/Imagenes" alt="SERVICIO 1" width="100">
+
+                    <h2>SERVICIO 1</h2>
+
+                    <p>Una página rápida, <strong>muy rápida</strong> la página</p>
+                    @*<button asp-action="Redirigir" class="btn btn-dark m-3 border border-2">RESERVAR TURNO</button>*@
+                    <form asp-action="Redirigir">
+
+                        <button type="submit" class="btn btn-primary">RESERVAR</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+
+
+
+                <div>
+
+                    <img src="./Views/Imagenes/Img2.jpg" alt="SERVICIO 2" width="100">
+
+                    <h2>SERVICIO 2</h2>
+
+                    <p>Una página simple, <strong>muy simple</strong> la página</p>
+                    <form asp-action="Redirigir">
+                        <button type="submit" class="btn btn-primary">RESERVAR</button>
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+
+                <div>
+
+                    <img src="./Views/Imagenes/Img3.jpg" alt="SERVICIO 3" width="100">
+
+                    <h2>SERVICIO 3</h2>
+
+                    <p>Una página increíble, <strong>muy increíble</strong> la página</p>
+                    <form asp-action="Redirigir">
+                        <button type="submit" class="btn btn-primary">RESERVAR</button>
+                    </form>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+
+                <div>
+
+                    <img src="./Views/Imagenes/Img4.jpg" alt="SERVICIO 4" width="100">
+
+                    <h2>SERVICIO 4</h2>
+
+                    <p>Una página linda, <strong>muy linda</strong> la página</p>
+                    <form asp-action="Redirigir">
+                        <button type="submit" class="btn btn-primary">RESERVAR</button>
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+
+        <p>Muchas gracias!</p>
+
+        <ul>
+
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+            <li><a href="#"><i class="fa fa-github"></i></a></li>
+
+        </ul>
+
+    </div>
+
+
+
+</body>
+
+
+
+</html>

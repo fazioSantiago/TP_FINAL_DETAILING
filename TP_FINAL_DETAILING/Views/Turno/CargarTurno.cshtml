@@ -1,0 +1,25 @@
+﻿@model Turno
+
+<h1>CARGAR TURNO</h1>
+
+<form asp-action="CargarTurnoPost">
+
+    <div class="form-group">
+        @*no agrego el Key xq era autonumerado*@
+        <label class="control-label">FECHA</label>
+        <input asp-for="Fecha" class="form-control" /> @*nombro el input como el atributo de la clase. asp-for busca "Nombre"*@
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">PATENTE</label>
+        <input asp-for="Patente" class="form-control" />
+
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+        <input type="submit" value="FINALIZAR" class="btn btn-outline-dark" /> @*es un tipo de boton especial que manda los datos del formulario*@
+
+    </div>
+
+</form>

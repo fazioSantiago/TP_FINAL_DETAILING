@@ -7,13 +7,13 @@ namespace TP_FINAL_DETAILING.Models
         [Key]
         public int IdTurno { get; set; }
         
-        [Required]
+        //[Required]
         public Cliente Cliente { get; set; }
-        [Required]
+        //[Required]
         public Servicio Servicio { get; set; }
-        [Required]
-        public DateTime Fecha { get; set; } //ver como asignar fecha y hora
-        [Required]
+        //[Required]
+        public DateTime Fecha { get; set; } //PREGUNTAR COMO USAR, ver como asignar fecha y hora
+        //[Required]
         public String Patente { get; set; }
        
         public Boolean EstaAbonado { get; set; } //es necesario? cuando pagas te asigna el turno
