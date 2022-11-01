@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<Servicio>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -40,6 +42,65 @@
 
     </div>
 
+@*    <table>
+       
+            @foreach (var item in Model)
+            {
+            <td>
+                 <tr>
+                    <label>@item.NombreServicio</label>
+                 <tr>
+                 <tr>
+                    <label>@item.DescripcionServicio</label>
+                </tr>
+                <tr>
+                    <label>@item.Precio</label>
+                </tr>
+            </td>
+                
+            }
+    </table>*@
+       
+@*   <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="col-3 d-inline">
+                <p>@item.NombreServicio</p>
+                <p>@item.DescripcionServicio</p>
+                <p>@item.Precio</p>
+            </div>
+        }
+   </div>*@
+
+   <table>
+     @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p>@item.NombreServicio</p>
+                </td>
+                <td>
+                    <p>@item.DescripcionServicio</p>
+                </td>
+                <td>
+                   <p>$ @item.Precio</p>
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Redirigir" asp-route-id="@item.IdServicio">
+                        RESERVAR
+                    </a>
+                </td>
+            </tr>
+        }
+   </table>
+   
+
+
+
+
+
+
+@*
     <div class="container">
 
         <div class="row">
@@ -51,10 +112,10 @@
                                            
                     <img src="./Views/Imagenes" alt="SERVICIO 1" width="100">
 
-                    <h2>SERVICIO 1</h2>
+                    <h2>@Model.</h2>
 
                     <p>Una página rápida, <strong>muy rápida</strong> la página</p>
-                    @*<button asp-action="Redirigir" class="btn btn-dark m-3 border border-2">RESERVAR TURNO</button>*@
+                    
                     <form asp-action="Redirigir">
 
                         <button type="submit" class="btn btn-primary">RESERVAR</button>
@@ -123,7 +184,7 @@
 
         </div>
 
-    </div>
+    </div>*@
 
     <div id="footer">
 
