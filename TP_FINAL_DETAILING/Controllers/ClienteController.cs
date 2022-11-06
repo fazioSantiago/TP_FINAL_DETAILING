@@ -8,6 +8,7 @@ namespace TP_FINAL_DETAILING.Controllers
     {
         public IActionResult Index()
         {
+            //hola
             return View();
         }
 
