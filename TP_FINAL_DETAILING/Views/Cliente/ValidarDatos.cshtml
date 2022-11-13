@@ -1,0 +1,42 @@
+﻿@model Cliente
+
+<h1>VALIDA DATOS</h1>
+
+    <div class="form-group">
+        <label class="control-label">SERVICIO</label>
+        <input placeholder="@ViewBag.nombreServicio" class="form-control" disabled />
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">MAIL</label>
+        <input placeholder="@Model.Email" class="form-control" disabled />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">NOMBRE</label>
+        <input placeholder="@Model.Nombre" class="form-control" disabled />
+
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label">APELLIDO</label>
+        <input placeholder="@Model.Apellido" class="form-control" disabled />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">TELEFONO</label>
+        <input placeholder="@Model.Telefono" class="form-control" disabled />
+
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+        <input type="submit" value="SIGUIENTE" class="btn btn-outline-dark" /> @*es un tipo de boton especial que manda los datos del formulario*@
+
+    </div>
+
+    <a class="btn btn-primary" asp-action="RedirigirCl">
+    RESERVAR
+    </a>
+
+

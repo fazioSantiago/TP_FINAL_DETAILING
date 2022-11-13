@@ -1,0 +1,44 @@
+﻿@model Cliente
+
+<h1>CARGAR CLIENTE</h1>
+
+<form asp-action="CargarCliente2Post">
+
+    <div class="form-group">
+        @*no agrego el Key xq era autonumerado*@
+        <label class="control-label">SERVICIO</label>
+        <input placeholder="@ViewBag.nombreServicio" class="form-control" disabled />
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">MAIL</label>
+        <input asp-for="Email" placeholder="@ViewData["mailCli"]" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        @*no agrego el Key xq era autonumerado*@
+        <label class="control-label">NOMBRE</label>
+        <input asp-for="Nombre" class="form-control" /> @*nombro el input como el atributo de la clase. asp-for busca "Nombre"*@
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">APELLIDO</label>
+        <input asp-for="Apellido" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">TELEFONO</label>
+        <input asp-for="Telefono" class="form-control" />
+
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+        <input type="submit" value="SIGUIENTE" class="btn btn-outline-dark" /> @*es un tipo de boton especial que manda los datos del formulario*@
+
+    </div>
+
+</form>
