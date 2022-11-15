@@ -8,15 +8,15 @@ namespace TP_FINAL_DETAILING.Models
         public int IdTurno { get; set; }
         
         //[Required]
-        public Cliente Cliente { get; set; }
+        public int idCliente { get; set; }
         //[Required]
-        public Servicio Servicio { get; set; }
+        public int idServicio { get; set; }
         //[Required]
         public DateTime Fecha { get; set; } //PREGUNTAR COMO USAR, ver como asignar fecha y hora
         //[Required]
         public String Patente { get; set; }
        
-        public Boolean EstaAbonado { get; set; } //es necesario? cuando pagas te asigna el turno
+ 
 
 
         

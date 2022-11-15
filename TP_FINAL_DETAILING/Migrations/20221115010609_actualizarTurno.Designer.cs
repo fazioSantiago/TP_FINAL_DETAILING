@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TP_FINAL_DETAILING.Models;
 
@@ -11,9 +12,10 @@ using TP_FINAL_DETAILING.Models;
 namespace TP_FINAL_DETAILING.Migrations
 {
     [DbContext(typeof(DetailingContext))]
-    partial class DetailingContextModelSnapshot : ModelSnapshot
+    [Migration("20221115010609_actualizarTurno")]
+    partial class actualizarTurno
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +90,9 @@ namespace TP_FINAL_DETAILING.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTurno"), 1L, 1);
+
+                    b.Property<bool>("EstaAbonado")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");

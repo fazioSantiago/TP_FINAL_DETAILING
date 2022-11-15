@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model Cliente
 
 <h1>CARGAR CLIENTE</h1>  
 
@@ -7,14 +7,14 @@
     <div class="form-group">
         @*no agrego el Key xq era autonumerado*@
         <label class="control-label">SERVICIO</label>
-        <input placeholder="@ViewBag.nombreServicio" class="form-control" disabled />
+        <input type="text" value=@TempData["nombreServicio"] class="form-control" disabled />
 
     </div>
 
 
     <div class="form-group">
         <label class="control-label">MAIL</label>
-        <input type="text" name="mail"/> 
+        <input asp-for=Email type="text" name="mail"/> 
 
     </div>
 

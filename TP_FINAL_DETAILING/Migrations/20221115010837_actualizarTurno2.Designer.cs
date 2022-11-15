@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TP_FINAL_DETAILING.Models;
 
@@ -11,9 +12,10 @@ using TP_FINAL_DETAILING.Models;
 namespace TP_FINAL_DETAILING.Migrations
 {
     [DbContext(typeof(DetailingContext))]
-    partial class DetailingContextModelSnapshot : ModelSnapshot
+    [Migration("20221115010837_actualizarTurno2")]
+    partial class actualizarTurno2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
