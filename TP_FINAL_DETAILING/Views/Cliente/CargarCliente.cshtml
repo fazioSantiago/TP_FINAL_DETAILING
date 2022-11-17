@@ -1,28 +1,30 @@
 ﻿@model Cliente
 
-<h1>CARGAR CLIENTE</h1>  
+<div class="container col-6 justify-content-evenly border border-1 border-primary rounded">
+    
+    <h1 class="text-center mt-4">CARGAR CLIENTE</h1>  
 
 
-<form asp-action="BuscarCliente">
-    <div class="form-group">
+    <form asp-action="BuscarCliente">
+    <div class="form-group p-3">
         @*no agrego el Key xq era autonumerado*@
         <label class="control-label">SERVICIO</label>
         <input type="text" value=@TempData["nombreServicio"] class="form-control" disabled />
 
     </div>
 
-
-    <div class="form-group">
+    <div class="form-group p-3">
         <label class="control-label">MAIL</label>
-        <input asp-for=Email type="text" name="mail"/> 
+        <input asp-for=Email type="text" name="mail" class="col-12"/> 
 
     </div>
 
-    <div class="form-group" style="margin-top:10px">
-        <input type="submit" value="SIGUIENTE" class="btn btn-outline-dark" /> @*es un tipo de boton especial que manda los datos del formulario*@
+    <div class="form-group mt-4 mb-5 p-3">
+        <input type="submit" value="SIGUIENTE" class="col-12 btn btn-outline-dark" /> @*es un tipo de boton especial que manda los datos del formulario*@
 
     </div>
 
 
 </form>
 
+</div>

@@ -76,6 +76,10 @@ namespace TP_FINAL_DETAILING.Migrations
                     b.Property<double>("Precio")
                         .HasColumnType("float");
 
+                    b.Property<string>("nombreImagen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("IdServicio");
 
                     b.ToTable("Servicios");

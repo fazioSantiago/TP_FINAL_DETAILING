@@ -1,37 +1,41 @@
 ﻿@model Cliente
+<div class="container col-6 justify-content-evenly border border-1 border-primary rounded" >
 
-<h1>CONFIRMAR DATOS</h1>
 
-    <div class="form-group">
+    <h1 class="text-center">CONFIRMAR DATOS</h1>
+
+    <div class="form-group col-12 p-1 justify-content-center">
         <label class="control-label">SERVICIO</label>
         <input placeholder="@ViewBag.nombreServicio" class="form-control" disabled />
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-12 p-1">
         <label class="control-label">MAIL</label>
         <input placeholder="@Model.Email" class="form-control" disabled />
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-12 p-1">
         <label class="control-label">NOMBRE</label>
         <input placeholder="@Model.Nombre" class="form-control" disabled />
 
     </div>
-    
-    <div class="form-group">
+
+    <div class="form-group col-12 p-1">
         <label class="control-label">APELLIDO</label>
         <input placeholder="@Model.Apellido" class="form-control" disabled />
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-12 p-1">
         <label class="control-label">TELEFONO</label>
         <input placeholder="@Model.Telefono" class="form-control" disabled />
 
     </div>
 
-    <a class="btn btn-primary" asp-action="RedirigirCl">
-    RESERVAR
-    </a>
+    <div class="mt-4 mb-4">
+        <a class="col-12 btn btn-primary" asp-action="RedirigirCl">RESERVAR</a>
+    </div>
+    
 
+</div>
 

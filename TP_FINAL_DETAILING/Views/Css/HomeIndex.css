@@ -65,6 +65,10 @@ a {
     font-size: 25px;
 }
 
-    #footer a:hover {
+#footer a:hover {
         color: white;
-    }
+}
+
+.alturaBanner{
+    height:25% !important;
+}

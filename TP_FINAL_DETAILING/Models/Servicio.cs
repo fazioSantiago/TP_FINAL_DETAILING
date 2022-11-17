@@ -13,6 +13,6 @@ namespace TP_FINAL_DETAILING.Models
         [MaxLength(500)]
         public string DescripcionServicio { get; set; }
         [Required]
-        public double Precio { get; set; }
+        public double Precio { get; set; }        
     }
 }

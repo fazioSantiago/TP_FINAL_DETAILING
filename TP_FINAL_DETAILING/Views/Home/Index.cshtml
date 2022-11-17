@@ -7,7 +7,7 @@
 
     <meta charset="utf-8">
 
-    <title>BIENVENIDOS</title>
+    <title>CAR-DETAILING</title>
 
     <link href='../Views/Css/HomeIndex.css' rel='stylesheet'>
 
@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="~/css/home.css">
+
 
 
 </head>
@@ -26,9 +28,20 @@
 
 <body>
 
+    <div class="container m-0 p-0 border-0 alturaBanner">
+        <div class="card bg-dark text-white">
+            <img src="~/Imagenes/Banner.jpg" class="card-img" alt="imagen de banner">
+            <div class="card-img-overlay text-center align-content-between">
+                <h1 class="card-title">CAR DETAILING</h1>
+                <h2 class="card-text">SERVICIOS</h2>
+                <h6 class="card-text">PODEMOS PONER OTRA COSA ACA</h6>
+            </div>
+        </div>
+    </div>
 
+    @*
+    <div class="container-fluid" id="banner">
 
-    <div id="banner">
 
         <h1>SERVICIOS</h1>
 
@@ -42,7 +55,7 @@
 
     </div>
 
-@*    <table>
+    <table>
        
             @foreach (var item in Model)
             {
@@ -59,9 +72,9 @@
             </td>
                 
             }
-    </table>*@
+    </table>
        
-@*   <div class="container">
+   <div class="container">
         @foreach (var item in Model)
         {
             <div class="col-3 d-inline">
@@ -70,22 +83,26 @@
                 <p>@item.Precio</p>
             </div>
         }
-   </div>*@
+   </div>
 
    <table>
      @foreach (var item in Model)
         {
             <tr>
-                <td>
+                
+                <td class="col-3">
+                    <img src="Imagenes/Img1.jpg" alt="foto Servicio" style="width:18%"/>
+                </td>
+                <td class ="col-3">
                     <p>@item.NombreServicio</p>
                 </td>
-                <td>
+                <td class="col-3">
                     <p>@item.DescripcionServicio</p>
                 </td>
-                <td>
+                <td class="col-3">
                    <p>$ @item.Precio</p>
                 </td>
-                <td>
+                <td class="p-3">
                     <a class="btn btn-primary" asp-action="Redirigir" asp-route-id="@item.IdServicio">
                         RESERVAR
                     </a>
@@ -93,7 +110,48 @@
             </tr>
         }
    </table>
-   
+    *@
+
+    <div class="card-group mt-5">
+        @foreach (var item in Model)        {
+            <div class="card p-1 border border-1 rounded-3 p-1 m-1">
+               
+                @*
+                prueba 1
+                
+                agregar a la base de datos los nombres de las imagenes y pornelos en src de la img (aca abajo)
+                no funciono
+                <img src="@item.nombreImagen" class="card-img-top" alt="imagen-servicio">
+               
+                prueba 2
+
+                probe con un switch y con el @item.id y no funciono
+                switch(item.IdServicio)
+                {
+                case: 1: <img src="~/Imagenes/acrilico.jpg" class="card-img-top" alt="imagen-servicio">
+                @break;
+                case: 2: <img src="~/Imagenes/lustrado.jpg" class="card-img-top" alt="imagen-servicio">
+                @break;
+                ase: 3: <img src="~/Imagenes/ceramico.png" class="card-img-top" alt="imagen-servicio">
+                @break;
+                case: 4: <img src="~/Imagenes/otro.jpg" class="card-img-top" alt="imagen-servicio">
+                @break;
+                }*@
+
+
+                <img src="~/Imagenes/ceramico.png" class="card-img-top h-50" alt="imagen-servicio">
+                
+                <div class="card-body h-50">
+                    <h5 class="card-title text-center">@item.NombreServicio</h5>
+                    <p class="card-text text-center">@item.DescripcionServicio</p>
+                    <p class="card-text text-center"><small class="text-muted">@item.Precio</small></p>
+                    <a class=" col-12 btn btn-primary" asp-action="Redirigir" asp-route-id="@item.IdServicio">
+                        RESERVAR
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
 
 
 
@@ -107,23 +165,16 @@
 
             <div class="col-xs-12 col-sm-6 col-md-3">
 
-                <div>
-
-                                           
-                    <img src="./Views/Imagenes" alt="SERVICIO 1" width="100">
+                <div>                                           
+                    <img src="./Views/Imagenes" alt="SERVICIO 1" width="10">
 
                     <h2>@Model.</h2>
-
-                    <p>Una página rápida, <strong>muy rápida</strong> la página</p>
-                    
+                    <p>Una página rápida, <strong>muy rápida</strong> la página</p>                    
                     <form asp-action="Redirigir">
-
                         <button type="submit" class="btn btn-primary">RESERVAR</button>
                     </form>
-
                 </div>
-
-            </div>
+         </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3">
 
@@ -186,21 +237,24 @@
 
     </div>*@
 
-    <div id="footer">
+    <div class="container mt-5 mb-5" id="footer">
 
-        <p>Muchas gracias!</p>
+        
 
-        <ul>
+        <div class="row">
+            <div class="col-auto">
+                <p>seguinos en nuestras redes</p>
+            </div>
 
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <div class="col-auto"><a href="#"><i class="fa fa-youtube"></i></a></div>
 
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <div class="col-auto" ><a href="#"><i class="fa fa-facebook"></i></a></div>
 
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <div class="col-auto" ><a href="#"><i class="fa fa-twitter"></i></a></div>
 
-            <li><a href="#"><i class="fa fa-github"></i></a></li>
+            <div class="col-auto"><a href="#"><i class="fa fa-github"></i></a></div>
 
-        </ul>
+        </div>
 
     </div>
 
