@@ -12,7 +12,7 @@ using TP_FINAL_DETAILING.Models;
 namespace TP_FINAL_DETAILING.Migrations
 {
     [DbContext(typeof(DetailingContext))]
-    [Migration("20221029184629_inicial")]
+    [Migration("20221119203935_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,10 @@ namespace TP_FINAL_DETAILING.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Contrasenia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -91,12 +95,6 @@ namespace TP_FINAL_DETAILING.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTurno"), 1L, 1);
 
-                    b.Property<int>("ClienteIdCliente")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("EstaAbonado")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
@@ -104,35 +102,15 @@ namespace TP_FINAL_DETAILING.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ServicioIdServicio")
+                    b.Property<int>("idCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idServicio")
                         .HasColumnType("int");
 
                     b.HasKey("IdTurno");
 
-                    b.HasIndex("ClienteIdCliente");
-
-                    b.HasIndex("ServicioIdServicio");
-
                     b.ToTable("Turnos");
-                });
-
-            modelBuilder.Entity("TP_FINAL_DETAILING.Models.Turno", b =>
-                {
-                    b.HasOne("TP_FINAL_DETAILING.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteIdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TP_FINAL_DETAILING.Models.Servicio", "Servicio")
-                        .WithMany()
-                        .HasForeignKey("ServicioIdServicio")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Servicio");
                 });
 #pragma warning restore 612, 618
         }

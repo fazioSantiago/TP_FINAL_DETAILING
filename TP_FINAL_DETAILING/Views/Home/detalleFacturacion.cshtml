@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Turno>
+
+
+<h1>Total facutración por servicio:</h1>
+
+
+
+    <table>
+        <tr>
+            <td>ID SERVICIO</td>
+            <td>NOMBRE SERVICIO</td>
+            <td>FACTURACION TOTAL</td>
+        </tr>
+
+    @foreach (Servicio s in ViewBag.Servicios)
+    {
+        <tr>
+            <td>@s.IdServicio</td>
+            <td>@s.NombreServicio</td>
+            <td>@</td>
+        </tr>    
+    }
+    </table>    

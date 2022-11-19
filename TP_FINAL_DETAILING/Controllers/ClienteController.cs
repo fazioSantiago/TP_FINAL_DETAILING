@@ -14,118 +14,68 @@ namespace TP_FINAL_DETAILING.Controllers
         }
 
         [HttpGet] //TRABAJA CON GET PORQUE ESTÁ CARGANDO LA PAGINA
-        public IActionResult CargarCliente()
+        public IActionResult IniciarSesion()
         {
-            int? id = (int?)TempData["idServicio"];
-            string? nombre;
             
-            using (DetailingContext context = new())
-            {
-                var nomServicio = context.Servicios.Find(id);
-                nombre = nomServicio?.NombreServicio;
-                 //esto lo muestro en la vista
-                
-            }
-
-            TempData["nombreServicio"] = nombre;
-            HttpContext.Session.SetString("nombre", nombre);
-            return View();
+           return View();
         }
 
-
-        //[HttpPost] //ENVIO DATOS DE LA PAGINA HACIA EL CONTROLADOR 
-        //public IActionResult CargarClientePost(Cliente c)
-        //{
-        //    using (DetailingContext context = new())
-        //    {
-        //        context.Clientes.Add(c);//guarda de forma logica al cliente
-        //        context.SaveChanges();
-        //        TempData["CLienteTurno"] = c;
-        //    }
-        //    return RedirectToAction(nameof(Index)); //me manda al index de cliente
-             
-        //}
 
         [HttpGet]
-        public IActionResult CargarCliente2()
+        public IActionResult CargarCliente()
         {
-            //int? id = (int?)TempData["idServicio"];
-            //string nombre;
-
-
-            //using (DetailingContext context = new())
-            //{
-            //    var nomServicio = context.Servicios.Find(id);
-            //    nombre = nomServicio.NombreServicio;
-            //    ViewBag.nombreServicio = nombre;//esto lo muestro en la vista
-
-            //}
-
-            string? mail = TempData["mailCli"].ToString();
-            ViewBag.Mail = mail;
-            ViewBag.NombreServicio = HttpContext.Session.GetString("nombre");
-
-            return View();
+           return View();
         }
 
-        [HttpPost] //ENVIO DATOS DE LA PAGINA HACIA EL CONTROLADOR 
+        [HttpPost] 
         public IActionResult CargarCliente2Post(Cliente c)
         {
             using (DetailingContext context = new())
             {
-                context.Clientes.Add(c);//guarda de forma logica al cliente
+                context.Clientes.Add(c);
                 context.SaveChanges();
-                //TempData["CLienteTurno"] = (Cliente) c;
+               
             }
-            TempData["IdCliente"] = c.IdCliente; //se va a usar por primera vez en TurnoControler
+            TempData["IdCliente"] = c.IdCliente; 
 
-            return RedirectToAction("CargarTurno", "Turno"); //me manda al index de cliente
+            return RedirectToAction("CargarTurno", "Turno");
 
         }
 
+        public IActionResult Alerta()
+        {
+            return View();
+        }
 
-
-        public IActionResult BuscarCliente (String mail)
+        public IActionResult BuscarCliente (String mail, String contrasenia) //lo llaman en CargarCliente
         {
             using (DetailingContext context = new())
             {
-                //var clienteBuscado = context.Clientes.Find(mail);
-                int i = 0;
                 Cliente clienteBuscado = null;
                 List<Cliente> clientes = context.Clientes.ToList();
                 Cliente? cliente = (from c in clientes where c.Email == mail select c).FirstOrDefault();
-
+                
                 if (cliente != null)
                 {
-                    clienteBuscado = cliente;   
-                } 
+                    clienteBuscado = cliente;
+                    TempData["IdCliente"] = clienteBuscado.IdCliente;
+                    string psw = clienteBuscado.Contrasenia;
+                    if (psw.Equals(contrasenia))
+                    {
+                      return RedirectToAction("CargarTurno", "Turno");
+                    } else
+                    {
+                      
+                      return RedirectToAction("Alerta", "Cliente");
+                    }
 
-                //while (i < clientes.Count)
-                //{
-                //    if (clientes[i].Email.Equals(mail)) {
-                //        clienteBuscado = clientes[i];
-                //    } else
-                //    {
-                //        i++;
-                //    }
-
-                //}
-
-                if (clienteBuscado == null)
+                } else //No encontró al cliente
                 {
-                    TempData["mailCli"] = mail;
-                  
-                    return RedirectToAction(nameof(CargarCliente2)); //deberia pasar el mail por parametro
-                } else
-                {
-                    //TempData["cEncontrado"] = clienteBuscado;
-                    return RedirectToAction(nameof(ValidarDatos), clienteBuscado); //que mande a un revisar datos
+                    return RedirectToAction("Alerta", "Cliente");
                 }
 
             }
-
             
-
         }
 
         [HttpGet]
@@ -141,5 +91,18 @@ namespace TP_FINAL_DETAILING.Controllers
         {
             return RedirectToAction("CargarTurno", "Turno");
         }
+
+       
     }
 }
+
+//while (i < clientes.Count)
+//{
+//    if (clientes[i].Email.Equals(mail)) {
+//        clienteBuscado = clientes[i];
+//    } else
+//    {
+//        i++;
+//    }
+
+//}

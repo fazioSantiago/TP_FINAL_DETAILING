@@ -8,23 +8,34 @@
 
         <div class="form-group">
 
-            @*no agrego el Key xq era autonumerado*@
             <label class="control-label">SERVICIO</label>
-            <input asp-for=idServicio type="text" value=@ViewBag.NombreServicio2 class="form-control" disabled />
+            <input type="text" value=@ViewBag.NombreServicio class="form-control" disabled />
+
+        </div>
+
+       <div class="form-group">
+           @{
+                var indexSs = (int)TempData["idServicio3"];
+            } 
+            <label class="control-label">ID SERVICIO</label>
+            <input asp-for=idServicio type="number" value=@indexSs class="form-control" readonly />
+
 
         </div>
 
         <div class="form-group">
+            @{
+                var index = (int)TempData["IdCliente"];
+            }
 
-            @*no agrego el Key xq era autonumerado*@
             <label class="control-label">CLIENTE ID</label>
-            <input asp-for=idCliente type="text" value=@TempData["IdCliente"] class="form-control" disabled />
+            <input asp-for="idCliente" type="text" value=@index class="form-control" readonly/>
 
 
         </div>
+
         <div class="form-group">
 
-            @*no agrego el Key xq era autonumerado*@
             <label class="control-label">FECHA</label>
             <input asp-for="Fecha" class="form-control" /> @*nombro el input como el atributo de la clase. asp-for busca "Nombre"*@
 

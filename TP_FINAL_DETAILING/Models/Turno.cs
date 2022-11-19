@@ -7,13 +7,13 @@ namespace TP_FINAL_DETAILING.Models
         [Key]
         public int IdTurno { get; set; }
         
-        //[Required]
+        [Required]
         public int idCliente { get; set; }
-        //[Required]
+        [Required]
         public int idServicio { get; set; }
-        //[Required]
+        [Required]
         public DateTime Fecha { get; set; } //PREGUNTAR COMO USAR, ver como asignar fecha y hora
-        //[Required]
+        [Required]
         public String Patente { get; set; }
        
  

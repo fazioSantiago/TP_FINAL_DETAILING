@@ -1,30 +1,43 @@
 ﻿@model Cliente
 
-<div class="container col-6 justify-content-evenly border border-1 border-primary rounded">
-    
-    <h1 class="text-center mt-4">CARGAR CLIENTE</h1>  
+<h1>CARGAR CLIENTE</h1>
 
+<form asp-action="CargarCliente2Post">
 
-    <form asp-action="BuscarCliente">
-    <div class="form-group p-3">
-        @*no agrego el Key xq era autonumerado*@
-        <label class="control-label">SERVICIO</label>
-        <input type="text" value=@TempData["nombreServicio"] class="form-control" disabled />
+    <div class="form-group">
+        <label class="control-label">NOMBRE</label>
+        <input asp-for=Nombre type="text" class="form-control" /> 
 
     </div>
 
-    <div class="form-group p-3">
+    <div class="form-group">
+        <label class="control-label">APELLIDO</label>
+        <input asp-for=Apellido type="text" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">TELEFONO</label>
+        <input asp-for=Telefono type="text" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
         <label class="control-label">MAIL</label>
-        <input asp-for=Email type="text" name="mail" class="col-12"/> 
+        <input asp-for=Email type="text" class="form-control" /> 
 
     </div>
 
-    <div class="form-group mt-4 mb-5 p-3">
-        <input type="submit" value="SIGUIENTE" class="col-12 btn btn-outline-dark" /> @*es un tipo de boton especial que manda los datos del formulario*@
+    <div class="form-group">
+        <label class="control-label">CONTRASEÑA</label>
+        <input asp-for=Contrasenia type="text" class="form-control" /> 
 
     </div>
 
+
+    <div class="form-group" style="margin-top:10px">
+        <input type="submit" value="SIGUIENTE" class="btn btn-outline-dark" /> 
+
+    </div>
 
 </form>
-
-</div>

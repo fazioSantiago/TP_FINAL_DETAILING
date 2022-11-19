@@ -35,6 +35,10 @@ namespace TP_FINAL_DETAILING.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Contrasenia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(320)
@@ -75,10 +79,6 @@ namespace TP_FINAL_DETAILING.Migrations
 
                     b.Property<double>("Precio")
                         .HasColumnType("float");
-
-                    b.Property<string>("nombreImagen")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdServicio");
 

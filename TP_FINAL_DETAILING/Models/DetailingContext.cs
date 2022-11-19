@@ -11,10 +11,10 @@ namespace TP_FINAL_DETAILING.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Santi
-            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-5MUUJS2\\SQLEXPRESS; Initial Catalog = ORTDetailing; Integrated Security = true");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-5MUUJS2\\SQLEXPRESS; Initial Catalog = ORTDetailing; Integrated Security = true");
             
             //javier
-            optionsBuilder.UseSqlServer("Data Source=.; Initial Catalog=ORTDetailing; Integrated Security=true;");
+            //optionsBuilder.UseSqlServer("Data Source=.; Initial Catalog=ORTDetailing; Integrated Security=true;");
 
         }
 
