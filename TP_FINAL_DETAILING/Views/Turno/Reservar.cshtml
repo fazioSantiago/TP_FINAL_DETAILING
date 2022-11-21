@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Turno>
+
+<h1>Se muestran todos los turnos:</h1>
+
+<table>
+    <tr>
+        <td>FECHA</td>
+        <td>DISPONIBLE</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-3">
+                <p>@item.Fecha</p>
+            </td>
+            <td class="p-3">
+                @if(@item.Disponible) { 
+                    <a class="btn btn-primary" asp-action="CargarTurno" asp-route-id="@item.IdTurno">
+                        Reservar
+                    </a>
+
+                   
+                } else {
+                    <a class="btn btn-danger" disabled>
+                    No Disponible
+                    </a>
+                }
+               
+            </td>
+        </tr>
+    }
+
+</table>

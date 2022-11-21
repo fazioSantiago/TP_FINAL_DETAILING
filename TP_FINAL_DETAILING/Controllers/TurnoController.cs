@@ -10,12 +10,20 @@ namespace TP_FINAL_DETAILING.Controllers
             return View();
         }
 
-        public IActionResult CargarTurno()
+        [HttpGet]
+        public IActionResult CargarTurno(int id)
         {
             ViewBag.NombreServicio = HttpContext.Session.GetString("nombreServicio");
             TempData["idServicio3"] = HttpContext.Session.GetInt32("idServicio");
+            Turno? turnoBuscado = null; 
 
-            return View();
+            using (DetailingContext context = new())
+            {
+                turnoBuscado = context.Turnos.Find(id);
+            }
+            
+                
+                return View(turnoBuscado);
         }
 
         [HttpPost] //ENVIO DATOS DE LA PAGINA HACIA EL CONTROLADOR 
@@ -24,13 +32,26 @@ namespace TP_FINAL_DETAILING.Controllers
             
             using (DetailingContext context = new())
             {
-                             
-                context.Turnos.Add(t);//guarda de forma logica al turno
+                t.Disponible = false;
+                context.Turnos.Update(t);
                 context.SaveChanges();
                 
             }
-            return RedirectToAction(nameof(IndexTurno)); //me manda al index de cliente
+            return RedirectToAction("IndexTurno"); 
 
+        }
+
+        public IActionResult Reservar()
+        {
+            List<Turno> turnos = null;
+
+            using (DetailingContext context = new())
+            {
+                turnos = context.Turnos.ToList();
+
+            }
+
+            return View(turnos);
         }
     }
 }

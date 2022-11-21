@@ -15,6 +15,7 @@ namespace TP_FINAL_DETAILING.Controllers
             using (DetailingContext context = new())
             {
                 servicios = context.Servicios.ToList();
+
             }
 
             return View(servicios);
@@ -39,45 +40,45 @@ namespace TP_FINAL_DETAILING.Controllers
         }
 
 
-        public IActionResult detalleFacturacion()
-        {
-            List<Turno> turnos = null;
-            List<Servicio> servicios = null;
-            List<int> acumuladores = new List<int>();   
+        //public IActionResult detalleFacturacion()
+        //{
+        //    List<Turno> turnos = null;
+        //    List<Servicio> servicios = null;
+        //    List<int> acumuladores = new List<int>();   
             
-            using (DetailingContext context = new())
-            {
-                turnos = context.Turnos.ToList();
-                ViewBag.Servicios = context.Servicios.ToList();
-                int acumulador1 = 0;
-                int acumulador2 = 0;
-                int acumulador3 = 0;
+        //    using (DetailingContext context = new())
+        //    {
+        //        turnos = context.Turnos.ToList();
+        //        ViewBag.Servicios = context.Servicios.ToList();
+        //        int acumulador1 = 0;
+        //        int acumulador2 = 0;
+        //        int acumulador3 = 0;
               
 
-                foreach (Turno t in turnos)
-                {
-                    int Id = t.idServicio;
+        //        foreach (Turno t in turnos)
+        //        {
+        //            //int Id = t.idServicio;
 
-                    if (Id == 1)
-                    {
-                        acumulador1++;
-                    }
-                    else if (Id == 1)
-                    {
-                        acumulador2++;
-                    }
-                    else
-                    {
-                       acumulador3++;
-                    }
-                }
-                acumuladores.Add(acumulador1);
-                acumuladores.Add(acumulador2);
-                acumuladores.Add(acumulador3);
+        //            if (Id == 1)
+        //            {
+        //                acumulador1++;
+        //            }
+        //            else if (Id == 1)
+        //            {
+        //                acumulador2++;
+        //            }
+        //            else
+        //            {
+        //               acumulador3++;
+        //            }
+        //        }
+        //        acumuladores.Add(acumulador1);
+        //        acumuladores.Add(acumulador2);
+        //        acumuladores.Add(acumulador3);
 
-            }
-            return View(acumuladores);
-        }
+        //    }
+        //    return View(acumuladores);
+        //}
  
 
     }

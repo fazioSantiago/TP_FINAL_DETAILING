@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TP_FINAL_DETAILING.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+ 
 
 namespace TP_FINAL_DETAILING.Controllers
 {
@@ -32,13 +35,18 @@ namespace TP_FINAL_DETAILING.Controllers
         {
             using (DetailingContext context = new())
             {
-                context.Clientes.Add(c);
-                context.SaveChanges();
-               
+                
+                if (ModelState.IsValid)
+                { 
+                    context.Clientes.Add(c);
+                    context.SaveChanges();
+
+                    return RedirectToAction("Reservar", "Turno");
+                }
             }
             TempData["IdCliente"] = c.IdCliente; 
 
-            return RedirectToAction("CargarTurno", "Turno");
+            return RedirectToAction("CargarCliente");
 
         }
 
@@ -62,7 +70,7 @@ namespace TP_FINAL_DETAILING.Controllers
                     string psw = clienteBuscado.Contrasenia;
                     if (psw.Equals(contrasenia))
                     {
-                      return RedirectToAction("CargarTurno", "Turno");
+                      return RedirectToAction("Reservar", "Turno");
                     } else
                     {
                       

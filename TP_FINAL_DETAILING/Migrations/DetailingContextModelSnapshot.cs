@@ -37,7 +37,8 @@ namespace TP_FINAL_DETAILING.Migrations
 
                     b.Property<string>("Contrasenia")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -93,18 +94,20 @@ namespace TP_FINAL_DETAILING.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTurno"), 1L, 1);
 
+                    b.Property<bool>("Disponible")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdServicio")
+                        .HasColumnType("int");
+
                     b.Property<string>("Patente")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("idCliente")
-                        .HasColumnType("int");
-
-                    b.Property<int>("idServicio")
-                        .HasColumnType("int");
 
                     b.HasKey("IdTurno");
 

@@ -2,36 +2,37 @@
 
 <h1>CARGAR CLIENTE</h1>
 
+
 <form asp-action="CargarCliente2Post">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-group">
         <label class="control-label">NOMBRE</label>
-        <input asp-for=Nombre type="text" class="form-control" /> 
-
+    <input asp-for=Nombre type="text" class="form-control" /> 
     </div>
 
     <div class="form-group">
         <label class="control-label">APELLIDO</label>
         <input asp-for=Apellido type="text" class="form-control" />
-
+        @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         <label class="control-label">TELEFONO</label>
         <input asp-for=Telefono type="text" class="form-control" />
-
+        @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         <label class="control-label">MAIL</label>
         <input asp-for=Email type="text" class="form-control" /> 
-
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         <label class="control-label">CONTRASEÑA</label>
         <input asp-for=Contrasenia type="text" class="form-control" /> 
-
+        @Html.ValidationMessageFor(model => model.Contrasenia, "", new { @class = "text-danger" })
     </div>
 
 
